@@ -15,6 +15,26 @@ app.use(express.urlencoded( {extend: true }));
 app.use(express.json());
 
 
+// api
+
+app.get( "/api/food", async (req, res) => {
+    try{
+        const data = await Food.find({});
+        res.json( data );
+    }
+    catch ( error ) {
+        res.status( 500 )
+        .json({ error: "Error While Ordering Food." });
+    }
+});
+
+
+
+
+
+
+
+
 // server
 
 app.get( "/", (req, res) => {

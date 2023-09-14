@@ -1,0 +1,36 @@
+
+[
+    {
+      "name": " Tomatoes Potatoes Icecream",
+      "description": "A traditional sun dried tomatoes with chucks of potatoes- pre smashed.",
+      "category": "Appetizer",
+      "price": 8.99,
+      "imageUrl": "https://i0.wp.com/billypenn.com/wp-content/uploads/2017/02/franklinfountain-icecream-tomato.jpg?fit=3071%2C2048&ssl=1",
+      "createdAt": "2023-09-13T12:00:00Z"
+    },
+    {
+      "name": "Spaghetti Bolognese",
+      "description": "A hearty plate of spaghetti topped with rich meat sauce and grated Parmesan cheese.",
+      "category": "Main Course",
+      "price": 12.99,
+      "imageUrl": "https://example.com/spaghetti-bolognese.jpg",
+      "createdAt": "2023-09-14T12:30:00Z"
+    },
+    {
+      "name": "Organic Chocolate",
+      "description": "A decadent dessert featuring a warm, gooey chocolate cake with a molten chocolate center.",
+      "category": "Dessert",
+      "price": 7.49,
+      "imageUrl": "https://example.com/chocolate-lava-cake.jpg",
+      "createdAt": "2023-09-15T18:45:00Z"
+    },
+    {
+      "name": "Mango Smoothie",
+      "description": "A refreshing mango smoothie made with ripe mangoes, yogurt, and a touch of honey.",
+      "category": "Beverage",
+      "price": 4.99,
+      "imageUrl": "https://example.com/mango-smoothie.jpg",
+      "createdAt": "2023-09-16T10:15:00Z"
+    }
+  ]
+  
