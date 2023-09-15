@@ -5,12 +5,15 @@ function Header() {
 
     return (
         <header>
-            <link></link>
+            /*  ADD LOGO IMG WITH LINK FUNCTION */
+            <link to = "/" className="logo"> 
+            </link>
 
             <nav>
-                <NavLink>KITCHEN'S DIARY</NavLink>
-                <NavLink>FOOD</NavLink>
-                <NavLink>SHARE</NavLink>
+                <NavLink to ="/" >HOME</NavLink>
+                <NavLink to ="/kitchen" >KITCHEN'S DIARY</NavLink>
+                <NavLink to ="/fridge" >FRIDGE</NavLink>
+                <NavLink to ="/share" >SHARE</NavLink>
             </nav>
 
         </header>

@@ -1,19 +1,26 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./routes/home";
-import Food from "./routes/food";
+import Fridge from "./routes/fridge";
+import Kitchen from "./routes/kitchen";
+import Share from "./routes/share";
+import Header from "./components/header";
+import Footer from "./components/footer"
 import './index.css';
+
 
 function App() {
 
   return (
     <div className="App">
       <Router>
-        Header
+        <Header/>
           <Routes>
             <Route path="/" element={ <Home/>}/>
-            <Route path="/food" element={ <Food/>}/>
+            <Route path="/kitchen" element={<Kitchen/>}/>
+            <Route path="/fridge" element={ <Fridge/>}/>
+            <Route path="/share" element={ <Share/>}/>
           </Routes>
-        Footer
+        <Footer/>
       </Router>
 
     </div>
