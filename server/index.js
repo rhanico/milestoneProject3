@@ -1,7 +1,7 @@
 require( "dotenv" ).config();
 const cors = require( "cors" );
 const express = require ( "express");
-const dataConnect = require( "./database" );
+const dataConnect = require ( "./database");
 const Food = require( "./models/foodModel")
 
 const app = express();
@@ -9,13 +9,13 @@ const PORT = process.env.PORT || 8000;
 
 
 // middleware
-
+dataConnect();    // MY MONGODB CONNECTION
 app.use(cors());
-app.use(express.urlencoded({extend: true }));
+app.use(express.urlencoded({extended: true }));
 app.use(express.json());
 
 
-// api
+// API ROUTES
 
 app.get( "/api/food", async (req, res) => {
     try{
@@ -29,13 +29,7 @@ app.get( "/api/food", async (req, res) => {
 });
 
 
-
-
-
-
-
-
-// server
+//  SERVER ROUTES
 
 app.get( "/", (req, res) => {
     res.json( "Hello World" );
