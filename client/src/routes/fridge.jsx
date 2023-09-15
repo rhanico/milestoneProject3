@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Fridge() {
-  const baseUrl = "http://localhost:8000/api/food";       // LINK TO BACK END API/DATABASE
+  const baseUrl = "http://localhost:8000/api/food";     // LINK TO BACK END API/DATABASE
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,18 +13,21 @@ function Fridge() {
         const response = await fetch(baseUrl);
 
         if (!response.ok) {
-          throw new Error("Failed To Fecth Data");
+          throw new Error("Failed To Fecth Food Data");
         }
-                                                         //FETCHING DATA COMPILE INTO A JSON FILE
+                                                          // FETCHING DATA COMPILE INTO A JSON FILE
         const fetchFoodData = await response.json();
         setData(fetchFoodData);
+        setIsLoading(false);                              // WILL SHOW LOADING DURING SLOW CONNECTION
       } catch (error) {
         console.log(error);
+        setError("Error Fetching Food, Please Order Again!");
+        setIsLoading(false);
       }
     };
 
-    fetchData();                                        // WILL INITIATE THE FETCHING DATA
-  }, []);                                               // WILL PREVENT SPAMMING FETCHING DATA
+    fetchData();                                       // WILL INITIATE THE FETCHING DATA
+  }, []);                                              // WILL PREVENT SPAMMING FETCHING DATA
 
   return (
     <div>
@@ -31,20 +36,26 @@ function Fridge() {
 
       <h2>FOOD CONTENTS</h2>
 
-      <ul className="food">
-        {data.map((item) => (
-          <li key={item._id}>
-            <Link to={`/food/${item._id}`}>
-              <img
-                src={`http://localhost:8000/uploads/${item.thumbnail}`}
-                alt={item.title}
-              />
+      {isLoading ? (                                    // LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA
+        <p>Currently Cooking...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <ul className="food">
+          {data.map((item) => (
+            <li key={item._id}>
+              <Link to={`/food/${item._id}`}>
+                <img
+                  src={`http://localhost:8000/uploads/${item.thumbnail}`}
+                  alt={item.name}
+                />
 
-              <h3> {item.name} </h3>
-            </Link>
-          </li>
-        ))}
-      </ul>
+                <h3> {item.name} </h3>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
