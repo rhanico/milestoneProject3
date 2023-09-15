@@ -108,32 +108,56 @@ footer {
 
 
 ul.food {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
-  gap: 10px;
 }
 
 ul.food li {
-  flex: 1 0 21%;
+  width: 100%; 
+  max-width: 800px; 
+  margin-bottom: 20px; 
+  background-color: white; 
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-ul.food li a {
-  align-items: center;
+
+ul.food {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 
 ul.food img {
-  max-height: 200px;
-  border-radius: 5px;
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+  border-radius: 0;
 }
 
+
 ul.food h3 {
-  text-align: center;
+  text-align: left; 
   font-weight: 300;
+  margin: 10px 20px; 
+  padding: 0;
+  width: 100%; 
+  max-width: 800px; 
+}
+
+
+ul.food li:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .fooddetails {

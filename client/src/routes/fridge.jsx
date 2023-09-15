@@ -36,6 +36,17 @@ function Fridge() {
 
       <h2>FOOD CONTENTS</h2>
 
+      <div className="filters">
+        <label>CATEGORIES</label>
+
+        <select>
+        <option value="Appertizer">APPERIZER</option>
+        <option value="Main Course">MAIN COURSE</option>
+        <option value="Dessert">DESSERT</option>
+        <option value="Beverage">DRINKS</option>
+        </select>
+      </div>
+
       {isLoading ? (                                    // LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA
         <p>Currently Cooking...</p>
       ) : error ? (
