@@ -2,33 +2,41 @@
     {
       "name": " Tomatoes Potatoes Icecream",
       "description": "A traditional sun dried tomatoes with chucks of potatoes- pre smashed.",
-      "category": "Appetizer",
+      "category": "appetizer",
       "price": 8.99,
-      "imageUrl": "https://i0.wp.com/billypenn.com/wp-content/uploads/2017/02/franklinfountain-icecream-tomato.jpg?fit=3071%2C2048&ssl=1",
+      "imageUrl": "asset/icecream.jpg",
       "createdAt": "2023-09-13T12:00:00Z"
     },
     {
       "name": "Spaghetti Bolognese",
       "description": "A hearty plate of spaghetti topped with rich meat sauce and grated Parmesan cheese.",
-      "category": "Main Course",
+      "category": "main Course",
       "price": 12.99,
-      "imageUrl": "https://example.com/spaghetti-bolognese.jpg",
+      "imageUrl": "asset/spaghetti.jpg",
       "createdAt": "2023-09-14T12:30:00Z"
     },
     {
-      "name": "Organic Chocolate",
+      "name": "Organic Chocolate Lava Cake",
       "description": "A decadent dessert featuring a warm, gooey chocolate cake with a molten chocolate center.",
-      "category": "Dessert",
+      "category": "dessert",
       "price": 7.49,
-      "imageUrl": "https://example.com/chocolate-lava-cake.jpg",
+      "imageUrl": "asset/lavacake.jpg",
       "createdAt": "2023-09-15T18:45:00Z"
     },
     {
       "name": "Mango Smoothie",
       "description": "A refreshing mango smoothie made with ripe mangoes, yogurt, and a touch of honey.",
-      "category": "Beverage",
+      "category": "beverage",
       "price": 4.99,
-      "imageUrl": "https://example.com/mango-smoothie.jpg",
+      "imageUrl": "asset/smoothie.jpg",
+      "createdAt": "2023-09-16T10:15:00Z"
+    },
+    {
+      "name": "Nail Bits Fries",
+      "description": "100 years organicly rusted iron rods, extra crisp!.",
+      "category": "other",
+      "price": 50.99,
+      "imageUrl": "asset/nailfries.jpg",
       "createdAt": "2023-09-16T10:15:00Z"
     }
   ]

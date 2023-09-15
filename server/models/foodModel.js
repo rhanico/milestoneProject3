@@ -12,7 +12,7 @@ const FoodSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ["Appetizer", "Main Course", "Dessert", "Beverage", "Other"],
+    enum: ["appetizer", "main course", "dessert", "beverage", "other"],
     required: true,
   },
   price: {

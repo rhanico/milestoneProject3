@@ -6,11 +6,18 @@ function Fridge() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCatagory, setSelectedCatagory] = useState( "" );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(baseUrl);
+
+        let url = baseUrl;
+        if( selectedCatagory ) {
+          url += `?category=${selectedCatagory}`
+        }
+
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error("Failed To Fecth Food Data");
@@ -39,11 +46,14 @@ function Fridge() {
       <div className="filters">
         <label>CATEGORIES</label>
 
-        <select>
+        <select 
+          onChange={ (e) => setSelectedCatagory(e.target.value) }>
+
         <option value="Appertizer">APPERIZER</option>
         <option value="Main Course">MAIN COURSE</option>
         <option value="Dessert">DESSERT</option>
         <option value="Beverage">DRINKS</option>
+
         </select>
       </div>
 

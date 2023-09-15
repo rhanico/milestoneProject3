@@ -20,6 +20,9 @@ app.use("/uplaods", express.static( "uploads" ));
 
 app.get( "/api/food", async (req, res) => {
     try{
+        const category = req.query.category;
+        console.log("category");
+        
         const data = await Food.find({});
         res.json( data );
     }
