@@ -13,7 +13,7 @@ dataConnect();    // MY MONGODB CONNECTION
 app.use(cors());
 app.use(express.urlencoded({extended: true }));
 app.use(express.json());
-app.use("/uplaods", express.static( "uploads" ));
+app.use("/asset", express.static( "asset" ));
 
 
 // API ROUTES

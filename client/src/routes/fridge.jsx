@@ -42,20 +42,17 @@ function Fridge() {
       <p> This will showcase different food.</p>
 
       <h2>FOOD CONTENTS</h2>
-
+                                                      //FILTER SEARCH OPTION FOR DATA
       <div className="filters">
         <label>CATEGORIES</label>
-
-        <select 
-          onChange={ (e) => setSelectedCatagory(e.target.value) }>
-
-        <option value="Appertizer">APPERIZER</option>
-        <option value="Main Course">MAIN COURSE</option>
-        <option value="Dessert">DESSERT</option>
-        <option value="Beverage">DRINKS</option>
-
+        <select onChange={(e) => setSelectedCatagory(e.target.value)}>
+          <option value="appetizer">APPETIZER</option>
+          <option value="main course">MAIN COURSE</option>
+          <option value="dessert">DESSERT</option>
+          <option value="beverage">DRINKS</option>
         </select>
       </div>
+
 
       {isLoading ? (                                    // LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA
         <p>Currently Cooking...</p>
