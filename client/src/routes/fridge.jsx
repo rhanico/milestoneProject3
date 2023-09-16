@@ -1,52 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-                                                           
-                                                                       {/* LINK TO BACK END API/DATABASE */}
+
+/* LINK TO BACK END API/DATABASE */
 function Fridge() {
-  const baseUrl = "http://localhost:8000/api/food";     
+  const baseUrl = "http://localhost:8000/api/food";
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCatagory, setSelectedCatagory] = useState( "" );
+  const [selectedCatagory, setSelectedCatagory] = useState("null");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         let url = baseUrl;
-        if( selectedCatagory ) {
-          url += `?category=${selectedCatagory}`
+        if (selectedCatagory) {
+          url += `?category=${selectedCatagory}`;
         }
 
         const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error("Failed To Fecth Food Data");
-        }                            
-                                                          {/*  FETCHING DATA COMPILE INTO A JSON FILE */}
+        }
+        /*  FETCHING DATA COMPILE INTO A JSON FILE */
         const fetchFoodData = await response.json();
         setData(fetchFoodData);
-        setIsLoading(false);                           {/*  WILL SHOW LOADING DURING SLOW CONNECTION */} 
+        setIsLoading(false);                              /*  WILL SHOW LOADING DURING SLOW CONNECTION */
       } catch (error) {
         console.log(error);
         setError("Error Fetching Food, Please Order Again!");
         setIsLoading(false);
       }
     };
-                                                          {/*  WILL INITIATE THE FETCHING DATA */}
-    fetchData();                                     
-  }, [ selectedCatagory ]);                            
-
+    /*  WILL INITIATE THE FETCHING DATA */
+    fetchData();
+  }, [selectedCatagory]);
+  /*  FILTER SEARCH OPTION FOR DATA 
+                                                            LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA */
   return (
     <div>
       <h1>Welcome to the Fridge</h1>
       <p> This will showcase different food.</p>
 
       <h2>FOOD CONTENTS</h2>
-                                                      {/*  FILTER SEARCH OPTION FOR DATA */}
+
       <div className="filters">
         <label>CATEGORIES</label>
         <select onChange={(e) => setSelectedCatagory(e.target.value)}>
+          <option value="">ALL</option>
           <option value="appetizer">APPETIZER</option>
           <option value="main course">MAIN COURSE</option>
           <option value="dessert">DESSERT</option>
@@ -54,8 +55,7 @@ function Fridge() {
         </select>
       </div>
 
-                                                                    {/*  LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA */}
-      {isLoading ? (                                    
+      {isLoading ? (
         <p>Currently Cooking...</p>
       ) : error ? (
         <p>{error}</p>

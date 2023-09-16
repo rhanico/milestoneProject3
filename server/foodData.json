@@ -10,7 +10,7 @@
     {
       "name": "Spaghetti Bolognese",
       "description": "A hearty plate of spaghetti topped with rich meat sauce and grated Parmesan cheese.",
-      "category": "main Course",
+      "category": "main course",
       "price": 12.99,
       "imageUrl": "asset/spaghetti.jpg",
       "createdAt": "2023-09-14T12:30:00Z"
@@ -39,5 +39,6 @@
       "imageUrl": "asset/nailfries.jpg",
       "createdAt": "2023-09-16T10:15:00Z"
     }
+
   ]
   
