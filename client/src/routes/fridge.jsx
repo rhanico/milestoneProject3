@@ -65,7 +65,8 @@ function Fridge() {
             <li key={item._id}>
               <Link to={`/food/${item._id}`}>
                 <img
-                  src={`http://localhost:8000/asset/${item.imageUrl}`}
+                  src={`http://localhost:8000/${item.imageUrl}`}
+
                   alt={item.name}
                 />
 
