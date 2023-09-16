@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+                                                           
+                                                                       {/* LINK TO BACK END API/DATABASE */}
 function Fridge() {
-  const baseUrl = "http://localhost:8000/api/food";     // LINK TO BACK END API/DATABASE
+  const baseUrl = "http://localhost:8000/api/food";     
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -21,20 +22,20 @@ function Fridge() {
 
         if (!response.ok) {
           throw new Error("Failed To Fecth Food Data");
-        }
-                                                          // FETCHING DATA COMPILE INTO A JSON FILE
+        }                            
+                                                          {/*  FETCHING DATA COMPILE INTO A JSON FILE */}
         const fetchFoodData = await response.json();
         setData(fetchFoodData);
-        setIsLoading(false);                              // WILL SHOW LOADING DURING SLOW CONNECTION
+        setIsLoading(false);                           {/*  WILL SHOW LOADING DURING SLOW CONNECTION */} 
       } catch (error) {
         console.log(error);
         setError("Error Fetching Food, Please Order Again!");
         setIsLoading(false);
       }
     };
-
-    fetchData();                                       // WILL INITIATE THE FETCHING DATA
-  }, []);                                              // WILL PREVENT SPAMMING FETCHING DATA
+                                                          {/*  WILL INITIATE THE FETCHING DATA */}
+    fetchData();                                     
+  }, [ selectedCatagory ]);                            
 
   return (
     <div>
@@ -42,7 +43,7 @@ function Fridge() {
       <p> This will showcase different food.</p>
 
       <h2>FOOD CONTENTS</h2>
-                                                      //FILTER SEARCH OPTION FOR DATA
+                                                      {/*  FILTER SEARCH OPTION FOR DATA */}
       <div className="filters">
         <label>CATEGORIES</label>
         <select onChange={(e) => setSelectedCatagory(e.target.value)}>
@@ -53,8 +54,8 @@ function Fridge() {
         </select>
       </div>
 
-
-      {isLoading ? (                                    // LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA
+                                                                    {/*  LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA */}
+      {isLoading ? (                                    
         <p>Currently Cooking...</p>
       ) : error ? (
         <p>{error}</p>
@@ -64,7 +65,7 @@ function Fridge() {
             <li key={item._id}>
               <Link to={`/food/${item._id}`}>
                 <img
-                  src={`http://localhost:8000/uploads/${item.thumbnail}`}
+                  src={`http://localhost:8000/asset/${item.imageUrl}`}
                   alt={item.name}
                 />
 
