@@ -1,36 +1,58 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 function FoodView() {
-    const baseUrl = "http://localhost:8000/api/food";
+    const {urlId} = useParams();
+    const baseUrl = `http://localhost:8000/api/food/${urlId._id}`;
     const [data, setData] = useState([]);
-    const urlId = useParams();
+
 
     useEffect(() => {
         const fetchData = async () => {
-          try {
-            const response = await fetch( `${basuUrl} ${urlId._id}` );
-    
-            if (!response.ok) {
-              throw new Error("Failed To Fecth Food Data");
+            try {
+                const response = await fetch(baseUrl);
+
+                if (!response.ok) {
+                    throw new Error("Failed To Fecth Food Data");
+                }
+
+                const fetchFoodData = await response.json();
+                setData(fetchFoodData);
+            } catch (error) {
+                console.log(error);
             }
-                                     
-          } catch (error) {
-            console.log(error);
-            setError("Error Fetching Food, Please Order Again!");
-          }
         };
-                                                                 /*  WILL INITIATE THE FETCHING DATA */
+        /*  WILL INITIATE THE FETCHING DATA */
         fetchData();
-      }, []);
-  return (
-    <div>
+    }, []);
+    return (
+        <div>
+            
+            <Link to ={"/fridge "}>Food</Link>
+            <div className="foodDetails">
+                <div className="col-1">
+                    <img
+                        src={`http://localhost:8000/asset/${data.imageUrl}`}
+                        alt={data.name}
+                     />
+                </div>
+                <div className="col-2">
+                    <h1>{data?.name}</h1>
+                    <p>{data?.description}</p>
 
-        <pre>{JSON.stringify( data,null, 2 )}</pre>
+                    <p>CATEGORY</p>
+                    <ul>
+                        {data?.category?.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
 
-    </div>
-  )
+
+                </div>
+            </div>
+        </div>
+    )
 }
 
-export default FoodView
+export default FoodView;

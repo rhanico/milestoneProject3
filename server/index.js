@@ -60,7 +60,7 @@ app.get( "/", (req, res) => {
 });
 
 app.get( "*", (req, res) => {
-    res.sendStatus( "404" );
+    res.sendStatus( 404 );
 });
 
 

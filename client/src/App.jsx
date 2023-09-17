@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./routes/home";
 import Fridge from "./routes/fridge";
-import food from "./routes/food";
+import FoodView from "./routes/food";
 import Kitchen from "./routes/kitchen";
 import Share from "./routes/share";
 import Header from "./components/header";
 import Footer from "./components/footer"
 import './index.css';
-import FoodView from "./routes/food";
 
 
 function App() {
@@ -20,7 +19,7 @@ function App() {
             <Route path="/" element={ <Home/>}/>
             <Route path="/kitchen" element={<Kitchen/>}/>
             <Route path="/fridge" element={ <Fridge/>}/>
-            <Route path="/fridge/:_id" element={ < FoodView/>} />
+            <Route path="/fridge/:_id" element={<FoodView />} />
             <Route path="/share" element={ <Share/>}/>
           </Routes>
         <Footer/>

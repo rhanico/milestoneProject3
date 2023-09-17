@@ -31,6 +31,7 @@ function Fridge() {
         console.log(error);
         setError("Error Fetching Food, Please Order Again!");
         setIsLoading(false);
+        setData([]);
       }
     };
     /*  WILL INITIATE THE FETCHING DATA */
