@@ -22,8 +22,15 @@ app.get( "/api/food", async (req, res) => {
     try{
         const category = req.query.category;
         console.log("You have seleted", category);
+
+        const filter = {};
+        if( category ) {
+            filter.category = category;
+        }
+
+        console.log("Filter Object:", filter);
         
-        const data = await Food.find({});
+        const data = await Food.find(filter);
         res.json( data );
     }
     catch ( error ) {
@@ -32,6 +39,19 @@ app.get( "/api/food", async (req, res) => {
     }
 });
 
+app.get( "/api/food/:_id", async (req, res) => {
+    try{
+        const idParam = req.params._id;
+        console.log(idParam);
+     
+        const data = await Food.findOne({ _id: idParam});
+        res.json( data );
+    }
+    catch ( error ) {
+        res.status( 500 )
+        .json({ error: "Error While Ordering Food." });
+    }
+});
 
 //  SERVER ROUTES
 

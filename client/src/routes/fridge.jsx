@@ -7,14 +7,15 @@ function Fridge() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCatagory, setSelectedCatagory] = useState("null");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let url = baseUrl;
-        if (selectedCatagory) {
-          url += `?category=${selectedCatagory}`;
+        if (selectedCategory) {
+          url += `?category=${selectedCategory}`;
+
         }
 
         const response = await fetch(url);
@@ -34,7 +35,7 @@ function Fridge() {
     };
     /*  WILL INITIATE THE FETCHING DATA */
     fetchData();
-  }, [selectedCatagory]);
+  }, [ selectedCategory ]);
   /*  FILTER SEARCH OPTION FOR DATA 
                                                             LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA */
   return (
@@ -46,7 +47,7 @@ function Fridge() {
 
       <div className="filters">
         <label>CATEGORIES</label>
-        <select onChange={(e) => setSelectedCatagory(e.target.value)}>
+        <select onChange={(e) => setSelectedCategory(e.target.value)}>
           <option value="">ALL</option>
           <option value="appetizer">APPETIZER</option>
           <option value="main course">MAIN COURSE</option>
