@@ -3,11 +3,10 @@ import { Link, useParams } from "react-router-dom";
 
 
 function FoodView() {
-    const {urlId} = useParams();
-    const baseUrl = `http://localhost:8000/api/food/${urlId._id}`;
     const [data, setData] = useState([]);
-
-
+    const urlId = useParams();
+    const baseUrl = `http://localhost:8000/api/food/${urlId._id}`;
+   
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -23,34 +22,36 @@ function FoodView() {
                 console.log(error);
             }
         };
-        /*  WILL INITIATE THE FETCHING DATA */
+
         fetchData();
     }, []);
     return (
         <div>
-            
-            <Link to ={"/fridge "}>Food</Link>
             <div className="foodDetails">
                 <div className="col-1">
+
+                    <p>CATEGORY</p>        {/** NEED TO FIX CATEGORY VALUE NOT SHOWING */}
+                    <ul>
+                        {data?.category?.length ? (
+                            data.category.map((item, index) => (
+                            <li key={index}>{item}</li>
+                            ))
+                        ) : (
+                            <li>No categories available</li>
+                        )}
+                    </ul>
+
                     <img
-                        src={`http://localhost:8000/asset/${data.imageUrl}`}
-                        alt={data.name}
+                        src={`http://localhost:8000/${data?.imageUrl}`}
+                        alt={data?.name}
                      />
                 </div>
                 <div className="col-2">
                     <h1>{data?.name}</h1>
                     <p>{data?.description}</p>
-
-                    <p>CATEGORY</p>
-                    <ul>
-                        {data?.category?.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
-
-
                 </div>
             </div>
+            <Link to ={"/fridge "}> FOOD LIST </Link>
         </div>
     )
 }

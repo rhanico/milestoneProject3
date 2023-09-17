@@ -19,7 +19,7 @@ function App() {
             <Route path="/" element={ <Home/>}/>
             <Route path="/kitchen" element={<Kitchen/>}/>
             <Route path="/fridge" element={ <Fridge/>}/>
-            <Route path="/fridge/:_id" element={<FoodView />} />
+            <Route path="/food/:_id" element={<FoodView />} />
             <Route path="/share" element={ <Share/>}/>
           </Routes>
         <Footer/>
