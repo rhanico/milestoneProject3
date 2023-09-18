@@ -53,6 +53,29 @@ app.get( "/api/food/:_id", async (req, res) => {
     }
 });
 
+app.post( "/api/food/", async (req, res) => {
+    try{
+        console.log(req.body);
+
+        const newFood = new Food({
+
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            //imageUrl: req.file.imageUrl,
+            category: req.body.category,
+        })
+
+
+        await Food.create({ newFood});
+        res.json( "HI THERE" );
+    }
+    catch ( error ) {
+        res.status( 500 )
+        .json({ error: "Error While Ordering Food." });
+    }
+});
+
 //  SERVER ROUTES
 
 app.get( "/", (req, res) => {

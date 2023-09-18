@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./routes/home";
 import Fridge from "./routes/fridge";
 import FoodView from "./routes/food";
+import AddFood from "./routes/addFood";
 import Kitchen from "./routes/kitchen";
 import Share from "./routes/share";
 import Header from "./components/header";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/kitchen" element={<Kitchen/>}/>
             <Route path="/fridge" element={ <Fridge/>}/>
             <Route path="/food/:_id" element={<FoodView />} />
+            <Route path="/addFood" element={ <AddFood/>}/>
             <Route path="/share" element={ <Share/>}/>
           </Routes>
         <Footer/>
