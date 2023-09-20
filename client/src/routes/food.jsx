@@ -44,7 +44,7 @@ function FoodView() {
                     <img
                         src={`http://localhost:8000/${data?.imageUrl}`}
                         alt={data?.name}/>
-                    <Link to ={`/editbook/${data._id}`}>EDIT</Link>
+                    <Link to ={`/editFood/${data._id}`}>EDIT</Link>
                 </div>
                 <div className="col-2">
                     <h1>{data?.name}</h1>

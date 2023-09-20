@@ -57,6 +57,8 @@ function Fridge() {
         </select>
       </div>
 
+      <Link to = "/addFood"> + ADD NEW FOOD!</Link>
+
       {isLoading ? (
         <p>Currently Cooking...</p>
       ) : error ? (

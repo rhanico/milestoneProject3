@@ -3,6 +3,7 @@ const cors = require( "cors" );
 const express = require ( "express");
 const dataConnect = require ( "./database");
 const Food = require( "./models/foodModel")
+const multer = require ("multer");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -53,7 +54,44 @@ app.get( "/api/food/:_id", async (req, res) => {
     }
 });
 
-app.post( "/api/food/", async (req, res) => {
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'asset/')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, file.fieldname + '-' + file.originalname)
+    }
+  })
+  
+  const upload = multer({ storage: storage })
+  
+
+app.post( "/api/food", upload.single("imageUrl"), async (req, res) => {
+    try{
+        console.log(req.body);
+
+        const newFood = new Food({
+
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            imageUrl: req.file.imageUrl,
+            category: req.body.category,
+        });
+
+        await Food.create({ newFood});
+        res.json( "HI THERE" );
+    }
+    catch ( error ) {
+        res.status( 500 )
+        .json({ error: "Error While Ordering Food." });
+    }
+});
+
+
+/**
+ app.post( "/api/food", async (req, res) => {
     try{
         console.log(req.body);
 
@@ -64,8 +102,7 @@ app.post( "/api/food/", async (req, res) => {
             price: req.body.price,
             //imageUrl: req.file.imageUrl,
             category: req.body.category,
-        })
-
+        });
 
         await Food.create({ newFood});
         res.json( "HI THERE" );
@@ -75,6 +112,9 @@ app.post( "/api/food/", async (req, res) => {
         .json({ error: "Error While Ordering Food." });
     }
 });
+ */
+
+
 
 //  SERVER ROUTES
 
