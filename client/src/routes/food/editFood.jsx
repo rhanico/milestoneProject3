@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import NoImageSelected from "../img/no-image.jpg";
+import NoImageSelected from "../../img/no-image.jpg"
 
 
 function EditFood() {

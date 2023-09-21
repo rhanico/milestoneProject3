@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NoImageSelected from "../img/no-image.jpg"
+import NoImageSelected from "../../img/no-image.jpg"
 
 
 function AddFood() {
