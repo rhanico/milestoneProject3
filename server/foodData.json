@@ -2,7 +2,6 @@
     {
       "name": " Tomatoes Potatoes Icecream",
       "description": "A traditional sun dried tomatoes with chucks of potatoes- pre smashed.",
-      "price": 8.99,
       "imageUrl": "./asset/icecream.jpg",
       "createdAt": "2023-09-13T12:00:00Z",
       "category":["appetizer"]
@@ -10,7 +9,6 @@
     {
       "name": "Spaghetti Bolognese",
       "description": "A hearty plate of spaghetti topped with rich meat sauce and grated Parmesan cheese.",
-      "price": 12.99,
       "imageUrl": "./asset/spaghetti.jpg",
       "createdAt": "2023-09-14T12:30:00Z",
       "category":["main course"]
@@ -18,7 +16,6 @@
     {
       "name": "Organic Chocolate Lava Cake",
       "description": "A decadent dessert featuring a warm, gooey chocolate cake with a molten chocolate center.",
-      "price": 7.49,
       "imageUrl": "./asset/lavacake.jpg",
       "createdAt": "2023-09-15T18:45:00Z",
       "category":["dessert"]
@@ -26,7 +23,6 @@
     {
       "name": "Mango Smoothie",
       "description": "A refreshing mango smoothie made with ripe mangoes, yogurt, and a touch of honey.",
-      "price": 4.99,
       "imageUrl": "./asset/smoothie.jpg",
       "createdAt": "2023-09-16T10:15:00Z",
       "category":["beverage"]
@@ -34,7 +30,6 @@
     {
       "name": "Nail Bits Fries",
       "description": "100 years organicly rusted iron rods, extra crisp!.",
-      "price": 50.99,
       "imageUrl": "./asset/nailfries.jpg",
       "createdAt": "2023-09-16T10:15:00Z",
       "category":["other"]
@@ -42,7 +37,6 @@
     {
       "name": "Vegetable Soda",
       "description": "Freshly squesh and organiclly picked backyard vegetable.",
-      "price": 5.99,
       "imageUrl": "./asset/vegdrink.jpg",
       "createdAt": "2023-09-16T10:15:00Z",
       "category":["beverage"]

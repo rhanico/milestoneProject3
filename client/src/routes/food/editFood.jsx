@@ -126,7 +126,7 @@ function EditFood() {
                             <img src={`http://localhost:8000/asset/${imageUrl}`}
                                 alt='preview img' />
                         )}
-                        <input type='file' accept='image/gif, image/jpeg, image/png' />
+                        <input type='file' accept='image/gif, image/jpeg, image/png' onChange={(e)}/>
                     </div>
 
                     <div className='col-2'>

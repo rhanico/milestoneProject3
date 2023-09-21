@@ -15,11 +15,6 @@ const FoodSchema = new Schema({
     enum: ["appetizer", "main course", "dessert", "beverage", "other"],
     required: true,
   },
-  price: {
-    type: Number,
-    required: true,
-    min: 0,
-  },
   imageUrl: {
     type: String,
     required: true,

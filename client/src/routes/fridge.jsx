@@ -36,7 +36,7 @@ function Fridge() {
     };
     /*  WILL INITIATE THE FETCHING DATA */
     fetchData();
-  }, [ selectedCategory ]);
+  }, [selectedCategory]);
   /*  FILTER SEARCH OPTION FOR DATA 
                                                             LOADING IF APPLIED OR ELSE ERROR OR ELSE DATA */
   return (
@@ -57,7 +57,7 @@ function Fridge() {
         </select>
       </div>
 
-      <Link to = "/addFood"> + ADD NEW FOOD!</Link>
+      <Link to="/addFood"> + ADD NEW FOOD!</Link>
 
       {isLoading ? (
         <p>Currently Cooking...</p>
@@ -68,13 +68,15 @@ function Fridge() {
           {data.map((item) => (
             <li key={item._id}>
               <Link to={`/food/${item._id}`}>
-                <img
-                  src={`http://localhost:8000/${item.imageUrl}`}
-
-                  alt={item.name}
-                />
-
-                <h3> {item.name} </h3>
+                {item.imageUrl ? (
+                  <img
+                    src={`http://localhost:8000/${item.imageUrl}`}
+                    alt={item.name}
+                  />
+                ) : (
+                  <p>No Image Available</p>
+                )}
+                <h3>{item.name}</h3>
               </Link>
             </li>
           ))}

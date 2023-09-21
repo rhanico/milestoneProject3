@@ -33,7 +33,8 @@ app.get("/api/food", async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error(error); 
-    res.status(500).json({ error: "Error While Retrieving Food." });
+    res.status(500).json({ error: "Error while retrieving food data", details: error.message });
+
   }
 });
 
@@ -49,7 +50,8 @@ app.get("/api/food/:_id", async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error(error); 
-    res.status(500).json({ error: "Error While Retrieving Food." });
+    res.status(500).json({ error: "Error while retrieving food data", details: error.message });
+
   }
 });
 
@@ -81,7 +83,8 @@ app.post("/api/food", upload.single("imageUrl"), async (req, res) => {
     res.json("Food created successfully.");
   } catch (error) {
     console.error(error); 
-    res.status(500).json({ error: "Error While Creating Food." });
+    res.status(500).json({ error: "Error while retrieving food data", details: error.message });
+
   }
 });
 
@@ -103,7 +106,8 @@ app.put("/api/food/:id", upload.single("imageUrl"), async (req, res) => {
     res.json("Food updated successfully.");
   } catch (error) {
     console.error(error); 
-    res.status(500).json({ error: "Error While Updating Food." });
+    res.status(500).json({ error: "Error while retrieving food data", details: error.message });
+
   }
 });
 
@@ -115,7 +119,8 @@ app.delete("/api/food/:id", async (req, res) => {
     res.json("Food deleted successfully.");
   } catch (error) {
     console.error(error); 
-    res.status(500).json({ error: "Error While Deleting Food." });
+    res.status(500).json({ error: "Error while retrieving food data", details: error.message });
+
   }
 });
 
