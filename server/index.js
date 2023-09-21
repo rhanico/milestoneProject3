@@ -89,22 +89,23 @@ app.post( "/api/food", upload.single("imageUrl"), async (req, res) => {
     }
 });
 
-
-/**
- app.post( "/api/food", async (req, res) => {
+app.put( "/api/food", upload.single("imageUrl"), async (req, res) => {
     try{
-        console.log(req.body);
-
-        const newFood = new Food({
+        const foodId = req.body.foodId;
+      
+        const updateFood = {
 
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
-            //imageUrl: req.file.imageUrl,
+            imageUrl: req.file.imageUrl,
             category: req.body.category,
-        });
+        };
+        if (req.file) {
+            updateFood.imageUrl = req.file.filename;
+        }
 
-        await Food.create({ newFood});
+        await Food.findByIdAndUpdate(foodId, updateFood);
         res.json( "HI THERE" );
     }
     catch ( error ) {
@@ -112,11 +113,8 @@ app.post( "/api/food", upload.single("imageUrl"), async (req, res) => {
         .json({ error: "Error While Ordering Food." });
     }
 });
- */
 
 
-
-//  SERVER ROUTES
 
 app.get( "/", (req, res) => {
     res.json( "Hello World" );

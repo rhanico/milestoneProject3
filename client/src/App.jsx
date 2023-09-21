@@ -6,7 +6,8 @@ import AddFood from "./routes/addFood";
 import Kitchen from "./routes/kitchen";
 import Share from "./routes/share";
 import Header from "./components/header";
-import Footer from "./components/footer"
+import Footer from "./components/footer";
+import EditFood from "./routes/editFood";
 import './index.css';
 
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/fridge" element={ <Fridge/>}/>
             <Route path="/food/:_id" element={<FoodView />} />
             <Route path="/addFood" element={ <AddFood/>}/>
+            <Route path="/editFood/:_id" element={ <EditFood/>}/>
             <Route path="/share" element={ <Share/>}/>
           </Routes>
         <Footer/>
