@@ -114,6 +114,18 @@ app.put( "/api/food", upload.single("imageUrl"), async (req, res) => {
     }
 });
 
+app.delete("/api/food/:id", async(req, res) => {
+    const foodId = req.params.id;
+
+    try {
+        await Food.deleteOne( {_id: FoodId });
+        res.json( "Nooo!" + req.body.foodId);
+    }
+    catch (error) {
+        res.json(error);
+    }
+})
+
 
 
 app.get( "/", (req, res) => {

@@ -29,20 +29,6 @@ function AddFood() {
                 body: FormData,
             });
 
-
-       /*     const response = await fetch("http://localhost:8000/api/food", {
-                method: "POST",
-                header: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(
-                    {
-                        name : name,
-                        description : description,
-                        category : category,
-                    }
-                ),
-            });
-        */
-
             if (response.ok) {
                 setName("");
 

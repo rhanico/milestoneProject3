@@ -1,16 +1,45 @@
-import React, { useState } from 'react';
-import NoImageSelected from "../img/no-image.jpg"
+import React, { useState, useEffect } from 'react';
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import NoImageSelected from "../img/no-image.jpg";
 
 
 function EditFood() {
 
+    const navigate = useNavigate();
+    const urlId = useParams();
+    const baseUrl = `http://localhost:8000/api/food/${urlId._id}`
+
+    const [foodId, setFoodId] = useState("");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [imageUrl, setImageUrl] = useState(null);
     const [category, setCategory] = useState([]);
     const [submitted, setSubmitted] = useState("");
+    const [image, setImage] = useState("");
 
+    const fetchData = async () => {
+        try {
+            const response = await fetch(baseUrl);
 
+            if (!response.ok) {
+                throw new Error(" FAILED TO FECTH DATA .");
+            }
+            const data = await response.json();
+            setFoodId(data._id);
+            setName(data.name);
+            setDescription(data.description);
+            setImageUrl(data.imageUrl);
+            setCategory(data.category);
+
+        }
+        catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
 
 
@@ -18,30 +47,21 @@ function EditFood() {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append ("name", name);
-        formData.append ("description", description);
-        formData.append ("category", category);
-      
+        formData.append("foodId", foodId);
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("category", category);
+
+        if (imageUrl) {
+            formData.append("imageUrl", imageUrl);
+
+        }
 
         try {
             const response = await fetch("http://localhost:8000/api/food", {
-                method: "POST",
+                method: "PUT",
                 body: FormData,
             });
-
-
-       /*     const response = await fetch("http://localhost:8000/api/food", {
-                method: "POST",
-                header: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(
-                    {
-                        name : name,
-                        description : description,
-                        category : category,
-                    }
-                ),
-            });
-        */
 
             if (response.ok) {
                 setName("");
@@ -57,8 +77,30 @@ function EditFood() {
     };
 
     const handleCategoryChange = (e) => {
-        setCategory( e.target.value.split(",").map((category) => category.trim()));
+        setCategory(e.target.value.split(",").map((category) => category.trim()));
     }
+
+    const removeFood = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch(
+                "http://localhost:8000/api/food/" + foodId,
+                {
+                    method: "DELETE"
+                }
+            )
+            if (response.ok) {
+                navigate("/food");
+                console.log("Remove Food!");
+            }
+
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
+
 
 
     return (
@@ -66,14 +108,24 @@ function EditFood() {
 
             <h1> EDIT </h1>
 
+            <button onClick={removeFood} className="delete">
+                REMOVE FOOD
+            </button>
+
             {submitted ? (
                 <p> FOOD SUBMITED! </p>
             ) : (
                 <form className='foodDetails' onSubmit={addFood}>
                     <div className='col-1'>
                         <lable>Add Photo!</lable>
-                        <img src={NoImageSelected}
-                            alt='preview img' />
+
+                        {image ? (
+                            <img src={`${image}`}
+                                alt="preview image" />
+                        ) : (
+                            <img src={`http://localhost:8000/asset/${imageUrl}`}
+                                alt='preview img' />
+                        )}
                         <input type='file' accept='image/gif, image/jpeg, image/png' />
                     </div>
 
@@ -101,7 +153,7 @@ function EditFood() {
                             <input
                                 type='text'
                                 value={category}
-                                onChange={ handleCategoryChange }
+                                onChange={handleCategoryChange}
                             />
                         </div>
 
