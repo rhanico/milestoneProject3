@@ -19,10 +19,12 @@ const FoodSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  category: [{
+    type: String,
+    enum: ["appetizer", "main course", "dessert", "beverage", "other"],
+    required: true,
+  }],
+  
 });
 
 module.exports = mongoose.model("Food", FoodSchema);

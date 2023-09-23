@@ -38,6 +38,7 @@ app.get("/api/food", async (req, res) => {
   }
 });
 
+// GET requests to retrieve a specific food item by ID
 app.get("/api/food/:_id", async (req, res) => {
   try {
     const idParam = req.params._id;
@@ -55,6 +56,8 @@ app.get("/api/food/:_id", async (req, res) => {
   }
 });
 
+
+// Multer storage for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'asset/')
@@ -67,6 +70,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
+// POST requests to create a new food item
 app.post("/api/food", upload.single("imageUrl"), async (req, res) => {
   try {
     console.log(req.body);
@@ -88,6 +92,7 @@ app.post("/api/food", upload.single("imageUrl"), async (req, res) => {
   }
 });
 
+// PUT requests to update a specific food item by ID
 app.put("/api/food/:id", upload.single("imageUrl"), async (req, res) => {
   try {
     const foodId = req.params.id;
@@ -98,6 +103,7 @@ app.put("/api/food/:id", upload.single("imageUrl"), async (req, res) => {
       price: req.body.price,
       category: req.body.category,
     };
+
     if (req.file) {
       updateFood.imageUrl = req.file.filename;
     }
@@ -105,12 +111,13 @@ app.put("/api/food/:id", upload.single("imageUrl"), async (req, res) => {
     await Food.findByIdAndUpdate(foodId, updateFood);
     res.json("Food updated successfully.");
   } catch (error) {
-    console.error(error); 
-    res.status(500).json({ error: "Error while retrieving food data", details: error.message });
-
+    console.error(error);
+    res.status(500).json({ error: "Error while updating food data", details: error.message });
   }
 });
 
+
+// DELETE requests to delete a specific food item by ID
 app.delete("/api/food/:id", async (req, res) => {
   const foodId = req.params.id;
 
@@ -124,6 +131,7 @@ app.delete("/api/food/:id", async (req, res) => {
   }
 });
 
+// Route for the root URL
 app.get("/", (req, res) => {
   res.json("Hello World");
 });

@@ -53,7 +53,8 @@ function Fridge() {
           <option value="appetizer">APPETIZER</option>
           <option value="main course">MAIN COURSE</option>
           <option value="dessert">DESSERT</option>
-          <option value="beverage">DRINKS</option>
+          <option value="beverage">BEVERAGE</option>
+          <option value="other">OTHER</option>
         </select>
       </div>
 

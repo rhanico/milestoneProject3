@@ -1,45 +1,44 @@
 [
-    {
-      "name": " Tomatoes Potatoes Icecream",
-      "description": "A traditional sun dried tomatoes with chucks of potatoes- pre smashed.",
-      "imageUrl": "./asset/icecream.jpg",
-      "createdAt": "2023-09-13T12:00:00Z",
-      "category":["appetizer"]
-    },
-    {
-      "name": "Spaghetti Bolognese",
-      "description": "A hearty plate of spaghetti topped with rich meat sauce and grated Parmesan cheese.",
-      "imageUrl": "./asset/spaghetti.jpg",
-      "createdAt": "2023-09-14T12:30:00Z",
-      "category":["main course"]
-    },
-    {
-      "name": "Organic Chocolate Lava Cake",
-      "description": "A decadent dessert featuring a warm, gooey chocolate cake with a molten chocolate center.",
-      "imageUrl": "./asset/lavacake.jpg",
-      "createdAt": "2023-09-15T18:45:00Z",
-      "category":["dessert"]
-    },
-    {
-      "name": "Mango Smoothie",
-      "description": "A refreshing mango smoothie made with ripe mangoes, yogurt, and a touch of honey.",
-      "imageUrl": "./asset/smoothie.jpg",
-      "createdAt": "2023-09-16T10:15:00Z",
-      "category":["beverage"]
-    },
-    {
-      "name": "Nail Bits Fries",
-      "description": "100 years organicly rusted iron rods, extra crisp!.",
-      "imageUrl": "./asset/nailfries.jpg",
-      "createdAt": "2023-09-16T10:15:00Z",
-      "category":["other"]
-    },
-    {
-      "name": "Vegetable Soda",
-      "description": "Freshly squesh and organiclly picked backyard vegetable.",
-      "imageUrl": "./asset/vegdrink.jpg",
-      "createdAt": "2023-09-16T10:15:00Z",
-      "category":["beverage"]
-    }
-  ]
-  
+  {
+    "name": "Tomatoes Potatoes Icecream",
+    "description": "A traditional sun-dried tomatoes with chunks of potatoes - pre-smashed.",
+    "imageUrl": "./asset/icecream.jpg",
+    "createdAt": "2023-09-13T12:00:00Z",
+    "category": "appetizer"
+  },
+  {
+    "name": "Spaghetti Bolognese",
+    "description": "A hearty plate of spaghetti topped with rich meat sauce and grated Parmesan cheese.",
+    "imageUrl": "./asset/spaghetti.jpg",
+    "createdAt": "2023-09-14T12:30:00Z",
+    "category": "main course"
+  },
+  {
+    "name": "Organic Chocolate Lava Cake",
+    "description": "A decadent dessert featuring a warm, gooey chocolate cake with a molten chocolate center.",
+    "imageUrl": "./asset/lavacake.jpg",
+    "createdAt": "2023-09-15T18:45:00Z",
+    "category": "dessert"
+  },
+  {
+    "name": "Mango Smoothie",
+    "description": "A refreshing mango smoothie made with ripe mangoes, yogurt, and a touch of honey.",
+    "imageUrl": "./asset/smoothie.jpg",
+    "createdAt": "2023-09-16T10:15:00Z",
+    "category": "beverage"
+  },
+  {
+    "name": "Nail Bits Fries",
+    "description": "100 years organically rusted iron rods, extra crisp!",
+    "imageUrl": "./asset/nailfries.jpg",
+    "createdAt": "2023-09-16T10:15:00Z",
+    "category": "other"
+  },
+  {
+    "name": "Vegetable Soda",
+    "description": "Freshly squeezed and organically picked backyard vegetables.",
+    "imageUrl": "./asset/vegdrink.jpg",
+    "createdAt": "2023-09-16T10:15:00Z",
+    "category": "beverage"
+  }
+]
