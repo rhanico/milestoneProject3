@@ -1,17 +1,19 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../img/donutlogo.png";
+
 
 function Header() {
 
     return (
         <header>
-            /*  ADD LOGO IMG WITH LINK FUNCTION */
-            <link to = "/" className="logo"> 
-            </link>
+            <Link to = "/" className="logo"> 
+            <img src= {logo} alt="logo"></img>
+            <NavLink to ="/" >HOME</NavLink>
+            </Link>
+            
 
             <nav>
-                <NavLink to ="/" >HOME</NavLink>
-                <NavLink to ="/kitchen" >KITCHEN'S DIARY</NavLink>
                 <NavLink to ="/fridge" >FRIDGE</NavLink>
                 <NavLink to ="/share" >SHARE</NavLink>
             </nav>

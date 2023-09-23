@@ -2,9 +2,9 @@ import React from 'react'
 
 function footer() {
   return (
-    <div>
-        footer
-    </div>
+    <footer>
+        <p>Mile Stone Project 3 - FRANZ RHANICO DOMINGO</p>
+    </footer>
   )
 }
 

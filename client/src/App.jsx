@@ -3,7 +3,6 @@ import Home from "./routes/home";
 import Fridge from "./routes/fridge";
 import FoodView from "./routes/food";
 import AddFood from "./routes/food/addFood";
-import Kitchen from "./routes/kitchen";
 import Share from "./routes/share";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -19,7 +18,6 @@ function App() {
         <Header/>
           <Routes>
             <Route path="/" element={ <Home/>}/>
-            <Route path="/kitchen" element={<Kitchen/>}/>
             <Route path="/fridge" element={ <Fridge/>}/>
             <Route path="/food/:_id" element={<FoodView />} />
             <Route path="/addFood" element={ <AddFood/>}/>
