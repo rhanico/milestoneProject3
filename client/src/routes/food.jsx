@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 function FoodView() {
-    // Define state variable 'data' to hold fetched food data
-    const [data, setData] = useState([]);
+    
+    const [data, setData] = useState({});
 
     // Extract the 'urlId' parameter from the route
     const urlId = useParams();
